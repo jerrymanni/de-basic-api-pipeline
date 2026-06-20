@@ -1,12 +1,13 @@
+from typing import Any
 from datetime import datetime, timezone
 
 
-def transform(data):
+def transform(data: dict[str, Any]) -> dict[str, Any]:
 
     try:
-        coords = data["coord"]
-        lon = coords["lon"]
-        lat = coords["lat"]
+        coords: dict = data["coord"]
+        lon: float = coords.get("lon", 99.99)
+        lat: float = coords.get("lat", 99.99)
 
         temp = data["main"]["temp"]
 

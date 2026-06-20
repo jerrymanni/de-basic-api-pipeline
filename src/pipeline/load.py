@@ -1,10 +1,11 @@
+from typing import Any
 import psycopg
 from ..config.config import Settings
 
 settings = Settings()
 postgres_url = f"postgresql://{settings.postgres_user}:{settings.postgres_password}@{settings.postgres_host}/{settings.postgres_db}"
 
-def load_to_db(data):
+def load_to_db(data: dict[str, Any]) -> None:
     with psycopg.connect(postgres_url) as conn:
 
         with conn.cursor() as cur:

@@ -1,3 +1,4 @@
+from typing import Any
 import requests
 from ..config.config import Settings
 
@@ -6,9 +7,7 @@ COORDS = [("44.34", "10.99"), ("30.15", "20.13")]
 WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 
-def extract_from_api(lat: str, long: str) -> dict:
-    #lat = "44.34"
-    #long = "10.99"
+def extract_from_api(lat: str, long: str) -> dict[str, Any]:
 
     url = f"{WEATHER_URL}?lat={lat}&lon={long}&units=metric&appid={settings.api_key}"
     try:
