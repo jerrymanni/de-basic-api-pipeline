@@ -1,5 +1,5 @@
 import requests
-from ..config.config import Settings  # ty:ignore[unresolved-import]
+from ..config.config import Settings
 
 settings = Settings()
 COORDS = [("44.34", "10.99"), ("30.15", "20.13")]

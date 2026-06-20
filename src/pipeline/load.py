@@ -1,5 +1,5 @@
 import psycopg
-from ..config.config import Settings  # ty:ignore[unresolved-import]
+from ..config.config import Settings
 
 settings = Settings()
 postgres_url = f"postgresql://{settings.postgres_user}:{settings.postgres_password}@{settings.postgres_host}/{settings.postgres_db}"
