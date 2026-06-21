@@ -1,17 +1,18 @@
 from typing import Any
 from datetime import datetime, timezone
+from ..schemas.api import WeatherResponse
 
 
-def transform(data: dict[str, Any]) -> dict[str, Any]:
+def transform(data: WeatherResponse) -> dict[str, Any]:
 
     try:
-        coords: dict = data["coord"]
-        lon: float = coords.get("lon", 99.99)
-        lat: float = coords.get("lat", 99.99)
+        coords = data.coord
+        lon = coords.lon
+        lat = coords.lat
 
-        temp = data["main"]["temp"]
+        temp = data.main.temp
 
-        timestamp = datetime.fromtimestamp(data["dt"], tz=timezone.utc)
+        timestamp = datetime.fromtimestamp(data.dt, tz=timezone.utc)
     except Exception as e:
         print(f"Ei onnistunut tietojen haku! Virhe: {e}")
         raise
